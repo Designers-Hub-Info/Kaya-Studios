@@ -1,0 +1,26 @@
+.bannerContainer {
+  background-color: #000;
+  color: white;
+  padding: 10px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bannerContainer:hover .bannerText {
+    animation-play-state: paused;
+}
+
+.bannerText {
+  white-space: nowrap;
+  animation: moveText 20s linear infinite;
+  display: inline-block;
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

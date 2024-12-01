@@ -1,0 +1,52 @@
+.flexContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0 4rem 0;
+}
+
+.flexBoard {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  animation: scroll 30s linear infinite;
+}
+
+.flexItem {
+  flex: 0 0 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.flexItem:hover {
+  transform: translateY(-10px);
+}
+
+.flexItem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.flexItem h3 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.flexItem p {
+  color: #666;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 3 - 2rem * 3));
+  }
+}
+
+.flexContainer:hover .flexBoard {
+  animation-play-state: paused;
+}
