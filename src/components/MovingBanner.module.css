@@ -4,23 +4,28 @@
   padding: 10px 0;
   width: 100%;
   overflow: hidden;
-}
-
-.bannerContainer:hover .bannerText {
-    animation-play-state: paused;
+  text-align: center;
+  position: relative;
 }
 
 .bannerText {
-  white-space: nowrap;
-  animation: moveText 20s linear infinite;
   display: inline-block;
+  animation: slideLeftToRight 20s linear infinite;
+  padding: 0 20px;
+  position: relative;
+  white-space: nowrap;
+  transform: translateX(100%);
 }
 
-@keyframes moveText {
-  from {
+@keyframes slideLeftToRight {
+  0% {
     transform: translateX(100%);
   }
-  to {
+  100% {
     transform: translateX(-100%);
   }
+}
+
+.bannerContainer:hover .bannerText {
+  animation-play-state: paused;
 }
