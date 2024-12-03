@@ -1,43 +1,42 @@
 import { useState } from 'react'
 import styles from './Coords.module.css'
+import { useCart } from '../context/CartContext'
 
 function Coords() {
+  const { addToCart } = useCart()
+  
   const [coords] = useState([
     {
-      id: 1,
-      name: "Summer Co-ord Set",
-      price: 2999,
-      image: "https://via.placeholder.com/300x400",
-      description: "Trendy printed co-ord set perfect for summer",
-      color: "Sage Green",
-      material: "Cotton Blend",
-      size: "S, M, L"
-    },
-    {
-      id: 2,
-      name: "Casual Co-ord Set",
-      price: 3499,
-      image: "https://via.placeholder.com/300x400",
-      description: "Comfortable casual wear co-ord set",
-      color: "Beige",
-      material: "Linen Blend",
-      size: "S, M, L, XL"
-    },
-    {
-      id: 3,
+      id: 201,
       name: "Printed Co-ord Set",
+      price: 3999,
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
+      description: "Modern printed co-ord set with trendy design",
+      color: "Multi",
+      material: "Cotton"
+    },
+    {
+      id: 202,
+      name: "Casual Co-ord Set",
       price: 2999,
-      image: "https://via.placeholder.com/300x400",
-      description: "Stylish printed top and bottom set",
-      color: "Blue & White",
-      material: "Cotton Blend",
-      size: "S, M, L"
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
+      description: "Comfortable casual wear co-ord set",
+      color: "Pastel Pink",
+      material: "Linen Blend"
+    },
+    {
+      id: 203,
+      name: "Party Co-ord Set",
+      price: 4999,
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
+      description: "Stylish party wear co-ord set",
+      color: "Black",
+      material: "Polyester Blend"
     }
-    // Add more co-ords as needed
   ])
 
   const handleAddToCart = (coord) => {
-    console.log('Added to cart:', coord)
+    addToCart(coord)
   }
 
   const handleBuyNow = (coord) => {
@@ -72,7 +71,6 @@ function Coords() {
               <p className={styles.description}>{coord.description}</p>
               <p>Color: {coord.color}</p>
               <p>Material: {coord.material}</p>
-              <p>Available Sizes: {coord.size}</p>
               <div className={styles.buttons}>
                 <button 
                   onClick={() => handleAddToCart(coord)}

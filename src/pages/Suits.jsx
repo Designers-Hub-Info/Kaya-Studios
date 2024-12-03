@@ -1,31 +1,42 @@
 import { useState } from 'react'
 import styles from './Suits.module.css'
+import { useCart } from '../context/CartContext'
 
 function Suits() {
+  const { addToCart } = useCart()
+  
   const [suits] = useState([
     {
-      id: 1,
+      id: 101,
       name: "Designer Anarkali Suit",
-      price: 4999,
-      image: "https://via.placeholder.com/300x400",
+      price: 7999,
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
       description: "Elegant Anarkali suit with detailed embroidery",
-      color: "Maroon",
+      color: "Royal Blue",
       material: "Georgette"
     },
     {
-      id: 2,
+      id: 102,
       name: "Palazzo Suit Set",
-      price: 3499,
-      image: "https://via.placeholder.com/300x400",
+      price: 4999,
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
       description: "Modern palazzo suit with printed design",
-      color: "Teal",
+      color: "Peach",
       material: "Cotton Blend"
     },
-    // Add more suits as needed
+    {
+      id: 103,
+      name: "Straight Cut Suit",
+      price: 5999,
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
+      description: "Classic straight cut suit with minimal design",
+      color: "Mint Green",
+      material: "Silk"
+    }
   ])
 
   const handleAddToCart = (suit) => {
-    console.log('Added to cart:', suit)
+    addToCart(suit)
   }
 
   const handleBuyNow = (suit) => {
