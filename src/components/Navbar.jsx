@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import logo from '../assets/logo2.png'
+import { useCart } from '../context/CartContext'
 
 function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const { cartCount } = useCart()
 
   const handleSearchClose = () => {
     setIsSearchOpen(false)
@@ -59,7 +61,12 @@ function Navbar() {
                 </a>
               </li>
               <li className={styles.cart}>
-                <a href="/cart" title="Shopping Cart">🛒</a>
+                <Link to="/cart" title="Shopping Cart">
+                  🛒
+                  {cartCount > 0 && (
+                    <span className={styles.cartBadge}>{cartCount}</span>
+                  )}
+                </Link>
               </li>
             </div>
           </>

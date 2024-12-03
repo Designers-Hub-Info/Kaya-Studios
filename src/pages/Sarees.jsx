@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import styles from './Sarees.module.css'
+import { useCart } from '../context/CartContext'
 
 function Sarees() {
+  const { addToCart } = useCart()
   const [sarees] = useState([
     {
       id: 1,
       name: "Traditional Silk Saree",
       price: 5999,
-      image: "https://via.placeholder.com/300x400",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3",
       description: "Handwoven silk saree with traditional designs",
       color: "Red",
       material: "Pure Silk"
@@ -34,8 +36,7 @@ function Sarees() {
   ])
 
   const handleAddToCart = (saree) => {
-    // Add to cart logic here
-    console.log('Added to cart:', saree)
+    addToCart(saree)
   }
 
   const handleBuyNow = (saree) => {
